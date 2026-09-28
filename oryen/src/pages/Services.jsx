@@ -1,0 +1,14 @@
+import {Link} from 'react-router-dom';import {src} from '../img';import Icon from '../components/Icon';import {Crumb} from './About';
+const S=[{n:'01',t:'HEALTHCARE PRODUCTS',ic:'flask',img:'svc1',d:'We develop and deliver high-quality biotechnology and healthcare products that promote well-being and a better tomorrow.',
+ f:[['flask','Research Driven','Backed by science and innovation to ensure effective results.'],['leaf','Natural & Safe','Formulated using natural ingredients for better health outcomes.'],['shield','Quality Assurance','Strict quality control and testing for safe and reliable products.'],['globe','Sustainable Impact','Committed to eco-friendly practices and community well-being.']],
+ oh:'What We Offer',o:['Herbal & Nutraceutical Products','Bio-Nutrient Formulations','Immunity & Wellness Solutions','Custom Formulation & Manufacturing']},
+{n:'02',t:'SOFTWARE BASED SOLUTIONS',ic:'code',img:'svc2',d:'We build digital solutions that help businesses grow, automate processes, and deliver exceptional user experiences.',
+ f:[['code','Custom Development','Tailored websites, web apps, and mobile apps to fit your needs.'],['monitor','User-Centric Design','Beautiful, intuitive designs that deliver great user experiences.'],['layers','Modern Technologies','We use the latest technologies for scalable and secure solutions.'],['headset','Support & Maintenance','Reliable support and maintenance to keep your business running.']],
+ oh:'Our Services Include',o:['Website Development','UI/UX Design','E-Commerce Solutions','API Development','Mobile App Development','Maintenance & Support']}];
+export default function Services(){
+ return <main><section className="phero"><div className="wrap"><small className="tag"><Link to="/">Home</Link> &gt; Services</small><h1>Our <em>Services</em></h1><p>Innovative solutions in healthcare and technology designed to create impact and drive growth.</p><Link to="/contact" className="btn dark">Let's Work Together →</Link></div></section>
+  {S.map((s,i)=><section className="wrap svc" key={s.n}><div className="card"><div className="sh"><span className="ic dk"><Icon n={s.ic} s={26}/></span><div><h3 className="num">{s.n}</h3><h2>{s.t}</h2></div></div><p>{s.d}</p>
+   <div className="grid2">{s.f.map(([ic,t,d])=><div className="feat" key={t}><span className="ic"><Icon n={ic}/></span><div><h5>{t}</h5><small>{d}</small></div></div>)}</div>
+   <div className="offer"><b>{s.oh}</b><ul>{s.o.map(x=><li key={x}><Icon n="check" s={14}/> {x}</li>)}</ul></div></div><img src={src(s.img)} alt={s.t}/></section>)}
+  <section className="wrap"><div className="cta"><span className="ic big"><Icon n="mail" s={28}/></span><div><h2>Have a Project in Mind?</h2><p>Let's build something great together.</p></div><Link to="/contact" className="btn light">Get In Touch →</Link></div></section></main>;
+}
